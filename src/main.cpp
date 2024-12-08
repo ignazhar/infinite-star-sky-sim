@@ -58,13 +58,14 @@ int main()
     window.setMouseCursorVisible(false);
 
     sf::Texture texture;
-    texture.loadFromFile("star4.png");
+    texture.loadFromFile("../img/star4.png");
     texture.setSmooth(true);
     texture.generateMipmap();
 
     std::vector<Star> stars = CreateStars(conf::star_count, conf::far_distance);
 
     sf::VertexArray va{sf::PrimitiveType::Quads, 4 * conf::star_count};
+    
     // Pre fill texture coords as they will remain constant
     const sf::Vector2f texture_size_f = static_cast<sf::Vector2f>(texture.getSize());
     for (uint32_t idx{conf::star_count}; idx --;)
